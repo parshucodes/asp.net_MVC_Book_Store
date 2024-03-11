@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MyBookStore.Models.Domain.Author
+<div class="container pt-5">
+    <div class="col-md-6">
+        <h3>Add Author</h3>
+        <form asp-action="Add" method="Post">
+            <div class="form-group">
+                <label asp-for="AuthorName">AuthorName*</label>
+                <input type="text" class="form-control" asp-for="AuthorName" />
+                <span asp asp-validation-for="AuthorName" class="text-danger"></span>
+            </div>
+            @if (TempData["msg"] != null)
+            {
+                <div class="form-group">
+                    @TempData["msg"]
+                </div>
+
+            }
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark">Save</button>
+                <a class="btn btn-primary" asp-action="GetAll" asp-controller="Author">List</a>
+            </div>
+                
+            
+        </form>
+    </div>
+</div>
